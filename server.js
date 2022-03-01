@@ -47,6 +47,29 @@ app.post('/login', function (req, res) {
   }
 });
 
+app.post('/product/:id', function (req, res) {
+  const pId = req.params.id;
+  if (pId == 1) {
+    res.json({
+      success: true,
+      message: 'Mask',
+      product: pId,
+    });
+  } else if (pId == 2) {
+    res.json({
+      success: true,
+      message: 'Gloves',
+      product: pId,
+    });
+  } else {
+    res.json({
+      success: false,
+      message: 'Product not found',
+      pId: pId,
+    });
+  }
+});
+
 app.listen(8000, function () {
   console.log('server is bunning');
 });
